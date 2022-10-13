@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+         xmlns:local="clr-namespace:App4.Views"
+             x:Class="App4.AppShell">
+    <FlyoutItem Title="Items">
+        <ShellContent Title="Первая верхняя" Route="FirstPage"
+                      ContentTemplate
+                      ="{DataTemplate local:FirstPage}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Библиотека">
+        <Tab>
+            <ShellContent Title="Жанры" Route="janr" ContentTemplate="{DataTemplate local:SecondPage}"/>
+            
+
+        </Tab>
+            <ShellContent Route="SecondPage"
+                      ContentTemplate
+                      ="{DataTemplate local:SecondPage}"/>
+        
+    </FlyoutItem>
+
+    <MenuItem Text="Выйти" Clicked="MenuItem_Clicked"/>
+
+    <TabBar>
+        <ShellContent Route="LoginPage"
+                      ContentTemplate
+                      ="{DataTemplate local:LoginPage}"/>
+    </TabBar>
+</Shell>
