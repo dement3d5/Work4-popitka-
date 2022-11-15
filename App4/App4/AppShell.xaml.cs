@@ -15,13 +15,15 @@ namespace App4
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
-
+            Routing.RegisterRoute(nameof(JanrDetailPage), typeof(JanrDetailPage));
             Routing.RegisterRoute(nameof(BookDetailPage), typeof(BookDetailPage));
+            Routing.RegisterRoute(nameof(LibraryDetailPage), typeof(LibraryDetailPage));
+
+
         }
         private void MenuItem_Clicked(object sender, EventArgs e)
         {
-            Shell.Current.GoToAsync("//LoginPage");
+            Current.GoToAsync("//LoginPage");
 
         }
     }

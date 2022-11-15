@@ -11,45 +11,38 @@ using Xamarin.Forms.Xaml;
 namespace App4.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FirstPage : ContentPage
+    public partial class ThreePage : ContentPage
     {
-
-        public FirstPage()
+        public ThreePage()
         {
             InitializeComponent();
-            ToLoginPage();
             GetItemsToCollection();
         }
-
-        //доступ к защищенному элементу
         protected override async void OnAppearing()
         {
             collectionView.ItemsSource = new List<Janr>();
             collectionView.ItemsSource = await App.Database.GetJanrs();
+            collectionView.ItemsSource = new List<Book>();
+            collectionView.ItemsSource = await App.Database.GetBooks();
             collectionView.SelectedItem = null;
             base.OnAppearing();
         }
 
         private async void GetItemsToCollection()
         {
+            collectionView.ItemsSource = await App.Database.GetBooks();
             collectionView.ItemsSource = await App.Database.GetJanrs();
+
         }
 
         private void collectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (collectionView.SelectedItem !=null)
+            if (collectionView.SelectedItem != null)
             {
+                Shell.Current.GoToAsync($"{nameof(LibraryDetailPage)}?{nameof(LibraryDetailPage.BookId)}={((Book)collectionView.SelectedItem).Id}");
                 Shell.Current.GoToAsync($"{nameof(JanrDetailPage)}" + $"?{nameof(JanrDetailPage.JanrId)}=" + $"{((Janr)collectionView.SelectedItem).Id}");
-                              
             }
         }
 
-
-        private async void ToLoginPage()
-        {
-            await Shell.Current.GoToAsync("//LoginPage");
-        }
     }
-
-
 }

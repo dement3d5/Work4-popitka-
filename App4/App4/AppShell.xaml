@@ -3,22 +3,30 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
          xmlns:local="clr-namespace:App4.Views"
              x:Class="App4.AppShell">
-    <FlyoutItem Title="Items">
+    <FlyoutItem Title="Добавить жанры">
         <ShellContent Title="Первая верхняя" Route="FirstPage"
                       ContentTemplate
                       ="{DataTemplate local:FirstPage}"/>
     </FlyoutItem>
 
-    <FlyoutItem Title="Библиотека">
-        <Tab>
-            <ShellContent Title="Жанры" Route="janr" ContentTemplate="{DataTemplate local:SecondPage}"/>
-            
-
-        </Tab>
+    <FlyoutItem Title="Добавить книги">
+      
+        
             <ShellContent Route="SecondPage"
                       ContentTemplate
                       ="{DataTemplate local:SecondPage}"/>
+
         
+    </FlyoutItem>
+
+    <FlyoutItem Title="Книги">
+
+
+        <ShellContent Route="SecondPage"
+                      ContentTemplate
+                      ="{DataTemplate local:ThreePage}"/>
+
+
     </FlyoutItem>
 
     <MenuItem Text="Выйти" Clicked="MenuItem_Clicked"/>

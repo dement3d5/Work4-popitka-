@@ -8,7 +8,7 @@ namespace App4
     {
         private static Database database;
 
-        public static Database DataBase
+        public static Database Database
         {
             get
             {

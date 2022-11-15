@@ -4,10 +4,9 @@ using System.Text;
 
 namespace App4
 {
-    public class Item
+    internal class Gener
     {
-        public int Id { get; set; }
-
-        public string Name { get; set; }
+        public string Name;
+        public int Id;
     }
 }
